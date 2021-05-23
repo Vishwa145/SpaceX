@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import DashboardContext from "../Helper/DashboardContext";
 
 function ActionButton({subCatogery})
@@ -6,18 +6,14 @@ function ActionButton({subCatogery})
 
   let {changeResult} = useContext(DashboardContext);
 
-    function DisplayResults()
+  let [selectedName, ChangeSelectedName] = useState("");
+
+    function DisplayResults(event)
     {
-        console.log(subCatogery.subCatogeryURL);
-        fetch(subCatogery.subCatogeryURL).then(
+      event.preventDefault();
+      console.log(subCatogery.subCatogeryURL + selectedName);
+        fetch(subCatogery.subCatogeryURL + selectedName).then(
             function(response) {
-                if (response.status !== 200) {
-                  response.json().then(function(data) {
-                    changeResult(Array.isArray(data)?data:[data]);
-                  });
-                  return;
-                }
-          
                 // Examine the text in the response
                 response.json().then(function(data) {
                   changeResult(Array.isArray(data)?data:[data]);
@@ -31,8 +27,22 @@ function ActionButton({subCatogery})
         );
     }
 
+    function ControlInput(event)
+    {
+      if(event.target.value[0]===" " || event.target.value[0]==="/")
+      {
+        alert("Emtpy spaces or slash characters not allowed at the starting");
+      }
+      else{
+        ChangeSelectedName(event.target.value);
+      }
+    }
+
     return(
-        <button onClick={DisplayResults} className="SubCatogeryButton">{subCatogery.subCatogeryName}</button>
+        <form onSubmit={DisplayResults}>
+        {subCatogery.subCatogeryName.includes("One")===true?<input type="text" onChange={ControlInput} value={selectedName} placeholder="Enter serial/id to identify" required/>:null}
+        <button type="submit" className="SubCatogeryButton">{subCatogery.subCatogeryName}</button>
+        </form>
     );
 }
 
