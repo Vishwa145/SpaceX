@@ -15,7 +15,7 @@ function DashboardMain (){
             items.push(indexflag===true?<p key={keyCounter++}><strong>{catogeryName}</strong> {" : "}</p>:null);
             let indexing = Array.isArray(catogery)?false:true;
             Object.keys(catogery).forEach((key)=>{
-                  items.push(<div className="Division">{components(catogery[key], key, indexing)}</div>);
+                  items.push(<div key={keyCounter++} className="Division">{components(catogery[key], key, indexing)}</div>);
             });
         }
         else
@@ -23,12 +23,12 @@ function DashboardMain (){
             items.push(indexflag===true?<p key={keyCounter++}><strong>{catogeryName}</strong> {" : " + catogery}</p>: <p key={keyCounter++}>{catogery}</p>);
         }
 
-        return <div className="Division">{items.map((comp)=>comp)}</div>;
+        return <div key={keyCounter++} className="Division">{items.map((comp)=>comp)}</div>;
       }
 
     return(
-           <div className="DashboardMain">
-              <div className="DashboardMain">
+           <div key={keyCounter++} className="DashboardMain">
+              <div key={keyCounter++} className="DashboardMain">
                 {components(result)}
               </div>
             </div>
