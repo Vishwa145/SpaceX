@@ -1,25 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Yanone+Kaffeesatz:wght@300&display=swap');
-
-$White-color: #ffffff;
-$Orange-color: #e67e22;
-
-@mixin FlexDisply($flow, $justify, $align) {
-    display: flex;
-    flex-flow: $flow;
-    justify-content: $justify;
-    align-items: $align;
-}
-
-@mixin ScrollHide {
-    overflow: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Yanone+Kaffeesatz:wght@300&display=swap");
 * {
-    margin: 0%;
+  margin: 0%;
 }
 
 html,
@@ -30,120 +11,132 @@ body,
   padding: 0%;
 }
 
-.App{
-    @include FlexDisply(column, null, null);
-    background-color: #f1f2f6;
+.App {
+  display: flex;
+  flex-flow: column;
+  background-color: #f1f2f6;
 }
 
-.Nav{
-    @include FlexDisply(null, space-between, center);
-    height: 10%;
-    width: 95%;
-    padding: 0px 2.5%;
-    box-shadow: 0px 1px 3px #bdc3c7;
-    background-color: $White-color;
-
-    button{
-        border-radius: 10px;
-        background-color: $Orange-color;
-        color: $White-color;
-        font-weight: bold;
-        border: none;
-        height: 40px;
-    }
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  width: 95%;
+  padding: 0px 2.5%;
+  box-shadow: 0px 1px 3px #bdc3c7;
+  background-color: #ffffff;
+}
+.Nav button {
+  border-radius: 10px;
+  background-color: #e67e22;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  height: 40px;
 }
 
-.Logo{
-    @include FlexDisply(null, null, center);
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+.Logo {
+  display: flex;
+  align-items: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
 }
 
-.Login{
-    @include FlexDisply(column, null, center);
-    margin: 10% 0% 0% 25%;
-    padding: 5%;
-    width: 500px;
-    border-radius: 20px;
-    background-color: $Orange-color;
-
-    button{
-        border-radius: 10px;
-        border: none;
-        height: 40px;
-        width: 200px;
-    }
+.Login {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 10% 0% 0% 25%;
+  padding: 5%;
+  width: 500px;
+  border-radius: 20px;
+  background-color: #e67e22;
+}
+.Login button {
+  border-radius: 10px;
+  border: none;
+  height: 40px;
+  width: 200px;
 }
 
-input{
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    height: 40px;
-    width: 200px;
-    margin: 0px 10px 15px 10px;
-    border: solid #95a5a6;
+input {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 200px;
+  margin: 0px 10px 15px 10px;
+  border: solid #95a5a6;
 }
 
-.Dashboard{
-    @include FlexDisply(row, null, null);
-    height: 90%;
+.Dashboard {
+  display: flex;
+  flex-flow: row;
+  height: 90%;
 }
 
-.DashboardIndex{
-    @include FlexDisply(column, null, null);
-    @include ScrollHide();
-    padding: 35px;
-    width:25%;
-    border-radius: 20px;
-    background-color: $White-color;
-    margin: 10px 0px 30px 0px;
-    .Catogery{
-        &:last-child{
-            border-bottom: none;
-        }
-    }
+.DashboardIndex {
+  display: flex;
+  flex-flow: column;
+  overflow: scroll;
+  padding: 35px;
+  width: 25%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin: 10px 0px 30px 0px;
+}
+.DashboardIndex::-webkit-scrollbar {
+  display: none;
+}
+.DashboardIndex .Catogery:last-child {
+  border-bottom: none;
 }
 
-.DashboardMain{
-    @include FlexDisply(column, null, null);
-    @include ScrollHide();
-    padding: 35px;
-    width:70%;
-    border-radius: 20px;
-    margin: 10px 0px 30px 0px;
-
-    .Division{
-        .Division{
-            border-bottom: 1px solid #95a5a6;
-        }
-        &:last-child{
-            border-bottom: none;
-        }
-    }
+.DashboardMain {
+  display: flex;
+  flex-flow: column;
+  overflow: scroll;
+  padding: 35px;
+  width: 70%;
+  border-radius: 20px;
+  margin: 10px 0px 30px 0px;
+}
+.DashboardMain::-webkit-scrollbar {
+  display: none;
+}
+.DashboardMain .Division .Division {
+  border-bottom: 1px solid #95a5a6;
+}
+.DashboardMain .Division:last-child {
+  border-bottom: none;
 }
 
-.Catogery{
-    @include FlexDisply(row wrap, center, null);
-    margin: 20px;
-    border-bottom: 1px solid #95a5a6;
+.Catogery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 20px;
+  border-bottom: 1px solid #95a5a6;
 }
 
-.SubCatogery{
-    @include FlexDisply(column wrap, left, null);
-    margin-left: 40px;
+.SubCatogery {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: left;
+  margin-left: 40px;
 }
 
-.SubCatogeryButton{
-    border-radius: 10px;
-    background-color: $Orange-color;
-    color:$White-color;
-    font-weight: bold;
-    border: none;
-    height: 40px;
-    width: 200px;
-    margin: 10px;
+.SubCatogeryButton {
+  border-radius: 10px;
+  background-color: #e67e22;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  height: 40px;
+  width: 200px;
+  margin: 10px;
 }
 
-.Division{
-    margin: 10px 20px;
-}
+.Division {
+  margin: 10px 20px;
+}/*# sourceMappingURL=Style.css.map */
