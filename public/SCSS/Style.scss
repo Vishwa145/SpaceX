@@ -66,21 +66,22 @@ body,
     border-radius: 20px;
     background-color: $Orange-color;
 
-    input{
-        border-radius: 10px;
-        outline: none;
-        border: none;
-        height: 40px;
-        width: 200px;
-        margin: 0px 10px 15px 10px;
-    }
-
     button{
         border-radius: 10px;
         border: none;
         height: 40px;
         width: 200px;
     }
+}
+
+input{
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 200px;
+    margin: 0px 10px 15px 10px;
+    border: solid #95a5a6;
 }
 
 .Dashboard{
